@@ -16,7 +16,9 @@ function getWeather(){
 		console.log(resp.target.responseText);
 		clima = JSON.parse(resp.target.responseText);
 		var res = document.getElementById("clima");
-		res.innerHTML = parseFloat(clima.main.temp) - 273.15.toFixed(2)+"°C";
+		var city = clima.name;
+		var country = clima.sys.country;
+		res.innerHTML = `La temperatura actual en ${city}, ${country} es de ${(parseFloat(clima.main.temp) - 273.15).toFixed(2)} C`;
 
 	}
 
